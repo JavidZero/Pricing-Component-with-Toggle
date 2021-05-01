@@ -1,0 +1,247 @@
+:root {
+
+    /* Colors */
+
+    /* Primary */
+
+    --linear-gradient:linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+
+    /* Neutral */
+
+    --very-light-grayish-blue: hsl(240, 78%, 98%);
+    --list-border: hsl(270, 80%, 98%);
+    --light-grayish-blue: hsl(234, 14%, 74%);
+    --grayish-blue: hsl(233, 13%, 49%);
+    --dark-grayish-blue: hsl(232, 13%, 33%);
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 144rem;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: var(--very-light-grayish-blue);
+    background-image: url("images/bg-top.svg");
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size:auto 80%;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+    background-image: url("images/bg-bottom.svg");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+}
+
+.container > * {
+    position: relative;
+    z-index: 100;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    padding: 4rem;
+}
+
+.header h3 {
+    color: var(--grayish-blue);
+    margin-bottom: 2rem;
+}
+
+.header-plans {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    color: var(--light-grayish-blue);
+    font-size: 1.2rem;
+}
+
+.switch {
+    width: 5rem;
+    height: 2.6rem;
+    border-radius: 2rem;
+    background-image: var(--linear-gradient);
+    padding: .3rem;
+    cursor: pointer;
+}
+
+.switch span {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--very-light-grayish-blue);
+    display: block;
+    transition: .3s linear;
+}
+
+.switch.swt span {
+    transform: translateX(2.4rem);
+}
+
+.main {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 35rem;
+    font-weight: 700;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: .4rem .4rem .8rem rgba(0,0,0,.2),-.4rem .4rem .8rem rgba(0,0,0,.2);
+    position: relative;
+}
+
+.card:nth-child(2) {
+    background-image: var(--linear-gradient);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    color: white;
+    z-index: 200;
+}
+
+.card:nth-child(1) {
+    border-radius: 1rem 0 0 1rem;
+}
+
+.card:nth-child(3) {
+    border-radius: 0 1rem 1rem 0;
+}
+
+.card p {
+    margin: 2rem auto;
+    font-size: 1.7rem;
+    color: var(--grayish-blue);
+}
+
+.card:nth-child(2) p,
+.card:nth-child(2) h1,
+.card:nth-child(2) ul {
+    color: white;
+}
+
+.card h1 {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    color: var(--dark-grayish-blue);
+}
+
+
+.card h1:nth-child(3) {
+    display: none;
+}
+
+.main.swt .card h1:nth-child(2) {
+    display: none;
+}
+
+.main.swt .card h1:nth-child(3) {
+    display: block;
+}
+
+.card ul {
+    list-style: none;
+    color: var(--grayish-blue);
+    margin-bottom: 2rem;
+}
+
+.card ul li {
+    padding: 2rem 0;
+    border-color: var(--list-border);
+    border-top: .01rem solid;
+    border-bottom: .01rem solid;
+}
+
+.card button {
+    width: 100%;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    padding: 1.5rem;
+    border: 1px solid var(--light-grayish-blue);
+    border-radius: .5rem;
+    background-color: white;
+    background-image: var(--linear-gradient);
+    cursor: pointer;
+}
+
+.card:nth-child(2) button {
+    background-image: none;
+    background-color: white;
+    color: var(--grayish-blue);
+}
+
+.card button:hover {
+    background-color: transparent;
+    background-image: none;
+    color: var(--grayish-blue);
+}
+
+.card:nth-child(2) button:hover {
+    color: white;
+}
+
+button:focus,
+button:active {
+    outline: none;
+}
+
+@media only screen and (max-width: 760px) {
+    .main {
+        flex-direction: column;
+        gap: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .container {
+        background-size: 40%;
+    }
+
+    .container::before {
+        display: none;
+    }
+
+    .card:nth-child(1),
+    .card:nth-child(3) {
+        border-radius: 1rem;
+    }
+}
